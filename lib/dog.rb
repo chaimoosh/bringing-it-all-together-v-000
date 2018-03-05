@@ -65,6 +65,8 @@ class Dog
       r = DB[:conn].execute(sql, thing[:name], thing[:breed])
       if r.flatten.empty?
         self.create(thing)
+      else 
+        self.find_by_name(thing[:name])
       end 
   end 
   
@@ -73,7 +75,8 @@ class Dog
       SELECT * FROM dogs WHERE name = ?
     SQL
     
-    DB[:conn].execute(sql, name)
+    row = DB[:conn].execute(sql, name)
+    self.new_from_db(row)
   end 
   
   def self.new_from_db(row)
