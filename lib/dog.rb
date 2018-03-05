@@ -76,13 +76,13 @@ class Dog
     SQL
     
     row = DB[:conn].execute(sql, name)
-    self.new_from_db(row)
+    self.new_from_db(row.flatten)
   end 
   
   def self.new_from_db(row)
-    id = row[0][0]
-    name = row[0][1]
-    breed = row[0][2]
+    id = row[0]
+    name = row[1]
+    breed = row[2]
     new_dog = self.new(id: id, name: name, breed: breed)
     new_dog
   end 
