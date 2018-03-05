@@ -43,6 +43,7 @@ class Dog
   end 
   
   def self.create(hash)
+    binding.pry
     new_dog = self.new(hash)
     new_dog.save
   end 
