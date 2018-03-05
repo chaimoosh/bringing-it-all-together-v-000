@@ -63,6 +63,7 @@ class Dog
       SQL
       
       r = DB[:conn].execute(sql, thing[:name], thing[:breed])
+      binding.pry
       if r.flatten.empty?
         self.create(thing)
       end 
