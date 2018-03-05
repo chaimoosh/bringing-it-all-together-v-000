@@ -43,7 +43,6 @@ class Dog
   end 
   
   def self.create(hash)
-    binding.pry
     new_dog = self.new(hash)
     new_dog.save
   end 
@@ -84,6 +83,7 @@ class Dog
     id = row[0]
     name = row[1]
     breed = row[2]
+    binding.pry
     new_dog = self.new(id: id, name: name, breed: breed)
     new_dog
   end 
